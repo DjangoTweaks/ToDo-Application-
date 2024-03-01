@@ -54,10 +54,15 @@ app.post("/todo", async (request,resolve)=>{
 app.get("/todos", async (request,resolve)=>{
 
     await TodoModel.find().then((data)=>{
-        resolve.send({data});
+        resolve.json({todos: data});
     })
     
 })
+
+// app.get('/todos', async function (req, res) {
+//     const allTodos = await todo.find({})
+//     res.json({ todos: allTodos })
+//   })
 
 
 app.put("/completed", async(request,resolve)=>{

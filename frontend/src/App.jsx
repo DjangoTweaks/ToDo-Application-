@@ -12,12 +12,10 @@ function App() {
 
   fetch("http://localhost:3000/todos")
   .then(async (response) => {
-    const endData = await response.json();
-    console.log(endData);
+    const json = await response.json();
+    setTodos(json.todos);
   })
-  .catch((error) => {
-    console.error('Error fetching data:', error);
-  });
+
 
 
   return (
